@@ -4,6 +4,7 @@ const ipsum = require('./lib/ipsum');
 
 const endpointRouter = require('./routers/endpoint');
 const sendRouter = require('./routers/send');
+const pdfRouter = require('./routers/pdf');
 
 const app = express()
 app.set('view engine', 'pug')
@@ -14,6 +15,8 @@ app.get('/', (req,res) => {
 });
 
 app.use('/endpoint', endpointRouter);
+
+app.use('/pdf', pdfRouter);
 
 app.use('/send', sendRouter);
 
