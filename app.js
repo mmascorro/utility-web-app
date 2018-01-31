@@ -5,6 +5,7 @@ const ipsum = require('./lib/ipsum');
 const endpointRouter = require('./routers/endpoint');
 const sendRouter = require('./routers/send');
 const pdfRouter = require('./routers/pdf');
+const linknotesRouter = require('./routers/linknotes');
 
 const app = express()
 app.set('view engine', 'pug')
@@ -25,6 +26,8 @@ app.get('/ipsum', (req,res) => {
   res.set('Content-Type', 'text/plain');
   res.send(result)
 });
+
+app.use('/linknotes', linknotesRouter);
 
 //start server
 app.listen(3000, () => {
